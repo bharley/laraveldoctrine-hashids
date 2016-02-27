@@ -38,7 +38,7 @@ use Doctrine\ORM\Mapping AS ORM;
 class User
 {
     /**
-     * @var int
+     * @var string
      * @ORM\Id
      * @ORM\Column(type="hashid", nullable=false)
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -49,13 +49,20 @@ class User
 }
 ```
 
+Interacting with the entity manager is as you'd expect. Simply replace where you'd use lame integer IDs with their
+obfuscated version:
+
+```php
+$user = EntityManager::find(User::class, 'dlGRfgH73');
+```
+
 The ID will be decoded before it hits the database, and it will be encoded on the way out. This allows you to use
 performant integer IDs while obfuscating details about your database and making URLs that point to objects slightly
 prettier.
 
 
 ## Configuration
-[vinkla/hashids] allows you to set up multiple "connections". his package will look for a `doctrine` connection, and
+[vinkla/hashids] allows you to set up multiple "connections". This package will look for a `doctrine` connection and
 use `main` as a fallback if the `doctrine` connection doesn't exist.
 
 
