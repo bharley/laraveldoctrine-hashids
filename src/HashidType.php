@@ -42,7 +42,7 @@ class HashidType extends IntegerType
         if ($value !== null) {
             $value = $this->getHashidsConnection()->decode($value);
             if (is_array($value)) {
-                $value = $value[0];
+                $value = array_shift($value);
             }
         }
 
@@ -63,3 +63,4 @@ class HashidType extends IntegerType
         return $connection;
     }
 }
+
