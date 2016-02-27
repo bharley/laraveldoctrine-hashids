@@ -1,0 +1,25 @@
+{
+  "name": "blake/laraveldoctrine-hashids",
+  "description": "Hashid type for Doctrine",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "doctrine",
+    "laravel",
+    "hashids"
+  ],
+  "homepage": "https://github.com/blake/laraveldoctrine-hashids",
+  "require": {
+    "php": ">=5.5.9",
+    "vinkla/hashids": "~2.0",
+    "doctrine/dbal": "~2.5.0"
+  },
+  "suggest": {
+    "laravel-doctrine/orm": "This is the recommended way of integrated Doctrine with Laravel"
+  },
+  "autoload": {
+    "psr-4": {
+      "Blake\\Dbal\\Types\\": "src"
+    }
+  }
+}
